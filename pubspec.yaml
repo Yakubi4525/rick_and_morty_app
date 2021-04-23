@@ -32,7 +32,8 @@ dependencies:
   rxdart: ^0.26.0
   flutter_spinkit: ^4.1.2+1
   device_preview: ^0.7.1
-  http: ^0.13.1
+  connectivity: ^2.0.2
+
 
   
 

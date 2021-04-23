@@ -1,3 +1,4 @@
+import 'package:connectivity/connectivity.dart';
 import 'package:rick_and_morty_app/domain/bloc_models/bloc_person_models.dart';
 import 'package:rick_and_morty_app/domain/model/person_response.dart';
 import 'package:rick_and_morty_app/domain/repository/persons_repository.dart';
@@ -16,13 +17,15 @@ class GetPersonBloc {
 
   void loadListOfPersons() async {
     _subject.sink.add(PersonResponseLoadingState());
-
     var _getListOfPersons;
+    Connectivity connectivity = Connectivity();
     try {
-      _getListOfPersons = await _personRepository.getListOfPersons();
-      print('тут');
+      ConnectivityResult connect = await connectivity.checkConnectivity();
+      if (connect != ConnectivityResult.none) {
+        print('has internet');
+        _getListOfPersons = await _personRepository.getListOfPersons();
+      } 
     } catch (errorValue) {
-      print('ошибка');
       _subject.sink.add(PersonResposeErrorState(error: 'ошибка запроса'));
     }
     if (_getListOfPersons != null) {
