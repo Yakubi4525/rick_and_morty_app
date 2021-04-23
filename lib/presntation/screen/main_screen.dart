@@ -131,7 +131,7 @@ class _MainScreenState extends State<MainScreen> {
                       children: <Widget>[
                         Row(
                           children: [
-                            avatarWidget(url: persons[index].image, radius: 30),
+                            avatarWidget(url: persons[index].image, radius: 30, heroIndex: persons[index].id),
                             SizedBox(
                               width: 14,
                             ),

@@ -60,7 +60,7 @@ class _DetailScreenState extends State<DetailScreen> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    avatarWidget(url: model.image, radius: _size.width*0.25),
+                    avatarWidget(url: model.image, radius: _size.width*0.25, heroIndex: model.id),
                     SizedBox(
                       height: 20,
                     ),
